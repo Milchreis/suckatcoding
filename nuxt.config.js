@@ -56,6 +56,8 @@ export default {
     modules: [
         // Doc: https://github.com/nuxt/content
         '@nuxt/content',
+        '@nuxtjs/feed',
+        '@nuxtjs/markdownit',
         '@nuxtjs/sitemap'
     ],
     /*
@@ -77,5 +79,53 @@ export default {
     build: {},
     sitemap: {
         hostname: process.env.NODE_ENV === 'production' ? 'https://milchreis.githib.io/suckatcoding' : 'http://localhost:3000',
-    }
+    },
+    feed: [{
+        path: '/feed.xml',
+        async create(feed) {
+            feed.options = {
+                title: process.env.npm_package_name || '',
+                description: 'Some description',
+                link: 'https://milchreis.githib.io/suckatcoding/feed.xml',
+            };
+
+            // eslint-disable-next-line global-require
+            const { $content } = require('@nuxt/content');
+
+            const posts = await $content('articles').fetch();
+
+            posts.forEach((post) => {
+                const url = `https://milchreis.githib.io/suckatcoding/blog/${post.slug}`;
+                feed.addItem({
+                    title: post.title,
+                    id: url,
+                    link: url,
+                    date: new Date(post.createdAt),
+                    description: post.blurb,
+                    content: post.bodyText,
+                });
+            });
+        },
+        cacheTime: 1000 * 60 * 15,
+        type: 'rss2',
+    }, ],
+    hooks: {
+        'content:file:beforeInsert': (document) => {
+            // eslint-disable-next-line
+            const md = require('markdown-it')();
+            if (document.extension === '.md') {
+                // eslint-disable-next-line global-require
+                const { text } = require('reading-time')(document.text);
+                document.readingTime = text;
+                const mdToHtml = md.render(document.text);
+                document.bodyText = mdToHtml;
+            }
+        },
+    },
+    markdownit: {
+        preset: 'default',
+        linkify: true,
+        breaks: true,
+        use: ['markdown-it-div', 'markdown-it-attrs'],
+    },
 }
