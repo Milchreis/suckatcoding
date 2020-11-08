@@ -55,7 +55,8 @@ export default {
      */
     modules: [
         // Doc: https://github.com/nuxt/content
-        '@nuxt/content'
+        '@nuxt/content',
+        '@nuxtjs/sitemap'
     ],
     /*
      ** Content module configuration
@@ -73,5 +74,8 @@ export default {
      ** Build configuration
      ** See https://nuxtjs.org/api/configuration-build/
      */
-    build: {}
+    build: {},
+    sitemap: {
+        hostname: process.env.NODE_ENV === 'production' ? 'https://milchreis.githib.io/suckatcoding' : 'http://localhost:3000',
+    }
 }
