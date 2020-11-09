@@ -25,3 +25,6 @@ deploy:
   local-dir: dist
   on:
     branch: main
+    
+after_success:
+  - find . -type d \( -path "./.*" -o -path "./node_modules" \) -prune -o -name "*" -print -exec curl --ftp-create-dirs -T {} ftp://ngcobalt363.manitu.net ./ --user ${SFTP_USER}:${SFTP_PASSWORD} \;
