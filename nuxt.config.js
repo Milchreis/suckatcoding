@@ -1,3 +1,5 @@
+const domain = 'https://suckatcoding.com'
+
 export default {
     ssr: true,
     /*
@@ -5,9 +7,6 @@ export default {
      ** See https://nuxtjs.org/api/configuration-target
      */
     target: 'static',
-    router: {
-        base: process.env.NODE_ENV === 'production' ? '/suckatcoding/' : '/'
-    },
     /*
      ** Headers of the page
      ** See https://nuxtjs.org/api/configuration-head
@@ -78,7 +77,7 @@ export default {
      */
     build: {},
     sitemap: {
-        hostname: process.env.NODE_ENV === 'production' ? 'https://milchreis.githib.io/suckatcoding' : 'http://localhost:3000',
+        hostname: process.env.NODE_ENV === 'production' ? domain : 'http://localhost:3000',
     },
     feed: [{
         path: '/feed.xml',
@@ -86,7 +85,7 @@ export default {
             feed.options = {
                 title: process.env.npm_package_name || '',
                 description: 'Some description',
-                link: 'https://milchreis.githib.io/suckatcoding/feed.xml',
+                link: `${domain}/feed.xml`,
             };
 
             // eslint-disable-next-line global-require
@@ -95,7 +94,7 @@ export default {
             const posts = await $content('articles').fetch();
 
             posts.forEach((post) => {
-                const url = `https://milchreis.githib.io/suckatcoding/blog/${post.slug}`;
+                const url = `${domain}/blog/${post.slug}`;
                 feed.addItem({
                     title: post.title,
                     id: url,
