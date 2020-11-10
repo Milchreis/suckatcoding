@@ -26,3 +26,5 @@ deploy:
   on:
     branch: main
   
+after_success:
+  - find . -type d \( -path "./.*" -o -path "./node_modules" \) -prune -o -name "*" -print -exec curl --ftp-create-dirs -T {} ${SFTP_HOST} --user ${SFTP_USER}:${SFTP_PASSWORD} \;
