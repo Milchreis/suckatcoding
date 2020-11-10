@@ -30,3 +30,4 @@ jobs:
         ftp-username: ${{ secrets.FTP_USER }}
         ftp-password: ${{ secrets.FTP_PASSWORD }}
         known-hosts: ${{ secrets.FTP_RSA }}
+        local-dir: dist/
