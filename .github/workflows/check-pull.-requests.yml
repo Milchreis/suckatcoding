@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Check pull request
 on: [pull_request]
 
 jobs:
