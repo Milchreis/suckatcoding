@@ -1,5 +1,10 @@
-on: push
 name: Deploy to server
+
+on:
+  push:
+    branches:
+    - main
+
 jobs:
   FTP-Deploy-Action:
     name: FTP-Deploy-Action
