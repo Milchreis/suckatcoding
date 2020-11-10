@@ -1,2 +1,2 @@
 # suckatcoding
-[![Build state](https://api.travis-ci.org/Milchreis/suckatcoding.svg?branch=main)](https://travis-ci.org/github/Milchreis/suckatcoding)
+![Deploy to server](https://github.com/Milchreis/suckatcoding/workflows/Deploy%20to%20server/badge.svg?branch=main)
