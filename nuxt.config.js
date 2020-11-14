@@ -12,7 +12,7 @@ export default {
      ** See https://nuxtjs.org/api/configuration-head
      */
     head: {
-        title: process.env.npm_package_name || '',
+        title: 'SUCK AT CODING',
         meta: [
             { charset: 'utf-8' },
             { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -22,7 +22,7 @@ export default {
                 content: process.env.npm_package_description || ''
             }
         ],
-        link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+        link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }]
     },
     /*
      ** Global CSS
