@@ -1,8 +1,9 @@
 <template>
   <div>
+    <MainNavigation :bare="true" />
     <Splashscreen />
 
-    <div class="m-8">
+    <div class="m-8 container">
       <h1 class="font-bold text-4xl">Blog Posts</h1>
       <ul class="flex flex-wrap">
         <li

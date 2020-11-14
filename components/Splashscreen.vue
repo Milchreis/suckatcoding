@@ -100,6 +100,7 @@ export default {
 
 .splashscreen {
   height: 100vh;
+  box-shadow: 0 0 40px #000c00;
   background-image: url(~assets/images/splash.jpg);
   background-position: center;
   background-repeat: no-repeat;
