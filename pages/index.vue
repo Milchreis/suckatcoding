@@ -3,7 +3,7 @@
     <MainNavigation :bare="true" />
     <Splashscreen />
 
-    <div class="m-8 container">
+    <div class="container xs:py-8 xs:px-8 lg:py-8">
       <h1 class="font-bold text-4xl">Blog Posts</h1>
       <ul class="flex flex-wrap">
         <li

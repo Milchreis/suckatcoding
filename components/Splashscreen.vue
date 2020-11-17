@@ -100,7 +100,7 @@ export default {
 
 .splashscreen {
   height: 100vh;
-  box-shadow: 0 0 40px #000c00;
+  box-shadow: 0 0 0 80px #191a19;
   background-image: url(~assets/images/splash.jpg);
   background-position: center;
   background-repeat: no-repeat;
@@ -110,5 +110,6 @@ export default {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-bottom: 6em;
 }
 </style>

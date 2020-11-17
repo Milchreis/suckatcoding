@@ -3,13 +3,14 @@
     <MainNavigation :bare="false" />
 
     <article class="flex xs:flex-col lg:flex-col">
-      <div class="relative lg:w-full xs:w-full xs:h-84 lg:h-screen post-left">
-        <img
-          :src="article.img"
-          :alt="article.alt"
-          class="absolute h-full w-full object-cover"
-        />
-        <div class="overlay relative container text-white">
+      <div class="relative lg:w-full xs:w-full xs:h-84 lg:h-3/4 cover">
+        <div
+          class="absolute h-full w-full object-cover bg-fixed imagestyle"
+          :style="'background-image: url(' + article.img + ');'"
+        ></div>
+        <div
+          class="overlay relative container xs:py-8 xs:px-8 lg:py-32 text-white"
+        >
           <div class="mt-16 -mb-3 flex uppercase text-sm">
             <p class="mr-3">
               {{ formatDate(article.updatedAt) }}
@@ -18,6 +19,7 @@
             <p>{{ article.author.name }}</p>
           </div>
           <h1 class="text-6xl font-bold">{{ article.title }}</h1>
+          <p class="-mt-2 mb-5">{{ article.description }}</p>
           <span v-for="(tag, id) in article.tags" :key="id">
             <NuxtLink :to="`/blog/tag/${tags[tag].slug}`">
               <span
@@ -28,7 +30,7 @@
             </NuxtLink>
           </span>
         </div>
-        <div class="flex absolute top-3rem right-3rem">
+        <!-- <div class="flex absolute top-3rem right-3rem">
           <NuxtLink
             to="/"
             class="mr-8 self-center text-white font-bold hover:underline"
@@ -42,16 +44,16 @@
             Tutorial
           </a>
           <AppSearchInput />
-        </div>
+        </div> -->
       </div>
       <div
-        class="container relative xs:py-8 xs:px-8 lg:py-32 xs:w-full markdown-body post-right custom-scroll"
+        class="container relative xs:py-8 xs:px-8 lg:py-8 xs:w-full markdown-body post-right custom-scroll"
       >
-        <h1 class="font-bold text-4xl">{{ article.title }}</h1>
+        <!-- <h1 class="font-bold text-4xl">{{ article.title }}</h1>
         <p>{{ article.description }}</p>
         <p class="pb-4">
           Post last updated: {{ formatDate(article.updatedAt) }}
-        </p>
+        </p> -->
         <!-- table of contents -->
         <nav class="pb-6">
           <ul>
@@ -114,8 +116,34 @@ export default {
 }
 </script>
 <style>
+.markdown-body .nuxt-content a {
+  color: #d31864;
+  text-decoration: inherit;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.markdown-body .nuxt-content a:hover {
+  color: #f8933a;
+}
+
+.cover {
+  overflow: hidden;
+  background-color: #1e2121;
+}
+
+.lg\:h-3\/4 {
+  height: 75vh;
+}
+
+.imagestyle {
+  width: 100%;
+  height: 100%;
+  filter: brightness(75%) blur(5px);
+}
+
 .overlay {
-  margin-top: 10em;
+  margin-top: 1em;
 }
 
 .nuxt-content p {

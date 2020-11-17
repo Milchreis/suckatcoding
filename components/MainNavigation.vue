@@ -37,17 +37,19 @@ export default {
     }
   },
   mounted() {
-    if (!this.bare) return
-
-    window.onscroll = function () {
-      const max = window.innerHeight * 0.75
-      if (
-        document.body.scrollTop > max ||
-        document.documentElement.scrollTop > max
-      ) {
-        document.querySelector('.navbar').classList.remove('bare')
-      } else {
-        document.querySelector('.navbar').classList.add('bare')
+    if (!this.bare) {
+      window.onscroll = null
+    } else {
+      window.onscroll = function () {
+        const max = window.innerHeight * 0.75
+        if (
+          document.body.scrollTop > max ||
+          document.documentElement.scrollTop > max
+        ) {
+          document.querySelector('.navbar').classList.remove('bare')
+        } else {
+          document.querySelector('.navbar').classList.add('bare')
+        }
       }
     }
   },
@@ -62,11 +64,11 @@ export default {
 <style type="postcss" scoped>
 .navbar {
   position: fixed;
+  padding: 0.5em;
   top: 0;
   z-index: 100;
   width: 100%;
-  background-color: #1b1f1e;
-  opacity: 0.9;
+  background-color: rgba(28, 28, 28, 0.95);
   transition: all 0.3s;
 }
 
@@ -95,6 +97,13 @@ export default {
 .title img {
   max-height: 60px;
   display: inline-block;
+}
+
+.title:hover img:first-child {
+  animation-name: nono;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
 }
 
 .navbar-links {
@@ -174,6 +183,21 @@ export default {
 
   .navbar-links.active {
     display: flex;
+  }
+}
+
+@keyframes nono {
+  from {
+    transform: rotateY(0deg);
+  }
+  23% {
+    transform: rotateY(-40deg) rotateZ(-10deg) rotateX(-10deg);
+  }
+  60% {
+    transform: rotateY(40deg) rotateZ(5deg);
+  }
+  to {
+    transform: rotateY(0deg);
   }
 }
 </style>
