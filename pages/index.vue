@@ -4,7 +4,7 @@
     <Splashscreen />
 
     <div class="container xs:py-8 xs:px-8 lg:py-8">
-      <h1 class="font-bold text-4xl">Blog Posts</h1>
+      <h1 class="font-extrabold text-4xl">Articles</h1>
       <ul class="flex flex-wrap">
         <li
           v-for="article of articles"

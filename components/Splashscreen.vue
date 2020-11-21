@@ -1,18 +1,21 @@
 <template>
-  <div class="splashscreen">
-    <div>
-      <div class="container">
-        <div class="face">
-          <Face />
+  <div>
+    <div class="splashscreen">
+      <div>
+        <div class="container">
+          <div class="face">
+            <Face />
+          </div>
+          <div class="logo_text">
+            <Logo />
+          </div>
         </div>
-        <div class="logo_text">
-          <Logo />
+        <div class="scroll" @click="scrollDown">
+          <ScrollDown />
         </div>
-      </div>
-      <div class="scroll" @click="scrollDown">
-        <ScrollDown />
       </div>
     </div>
+    <div id="splashend"></div>
   </div>
 </template>
 

@@ -14,9 +14,9 @@
       </a>
       <div class="navbar-links" :class="open ? 'active' : ''">
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+          <li v-for="(item, i) in menu" :key="i">
+            <NuxtLink :to="item.to">{{ item.text }}</NuxtLink>
+          </li>
         </ul>
       </div>
     </div>
@@ -33,7 +33,13 @@ export default {
   },
   data() {
     return {
-      open: false
+      open: false,
+      menu: [
+        { text: 'Home', to: '/#splashend' },
+        { text: 'Blog', to: '/blog' },
+        { text: 'Projects', to: '/projects' },
+        { text: 'Search', to: '/search' }
+      ]
     }
   },
   mounted() {
