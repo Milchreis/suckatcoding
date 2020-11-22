@@ -42,18 +42,14 @@ export default {
      ** Nuxt.js dev-modules
      */
     buildModules: [
-        // Doc: https://github.com/nuxt-community/eslint-module
         '@nuxtjs/eslint-module',
-        // Doc: https://github.com/nuxt-community/stylelint-module
         '@nuxtjs/stylelint-module',
-        // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-        '@nuxtjs/tailwindcss'
+        '@nuxtjs/tailwindcss', ['@nuxtjs/google-analytics', { id: 'G-PGX2HR178P' }],
     ],
     /*
      ** Nuxt.js modules
      */
     modules: [
-        // Doc: https://github.com/nuxt/content
         '@nuxt/content',
         '@nuxtjs/feed',
         '@nuxtjs/markdownit',
