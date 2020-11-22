@@ -30,21 +30,6 @@
             </NuxtLink>
           </span>
         </div>
-        <!-- <div class="flex absolute top-3rem right-3rem">
-          <NuxtLink
-            to="/"
-            class="mr-8 self-center text-white font-bold hover:underline"
-          >
-            All articles
-          </NuxtLink>
-          <a
-            href="https://nuxtjs.org/blog/creating-blog-with-nuxt-content"
-            class="mr-8 self-center text-white font-bold hover:underline"
-          >
-            Tutorial
-          </a>
-          <AppSearchInput />
-        </div> -->
       </div>
       <div
         class="container relative xs:py-8 xs:px-8 lg:py-8 xs:w-full markdown-body post-right custom-scroll"
@@ -69,6 +54,7 @@
         </div>
       </div>
     </article>
+    <Footer></Footer>
   </div>
 </template>
 <script>
@@ -106,6 +92,9 @@ export default {
   color: #ebebeb;
   background-color: #444;
   padding: 2em;
+  a {
+    color: #ccc;
+  }
 }
 
 article {

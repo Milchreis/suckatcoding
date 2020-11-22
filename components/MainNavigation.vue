@@ -1,26 +1,40 @@
 <template>
-  <nav class="navbar" :class="bare === true ? 'bare' : ''">
-    <div class="container">
-      <div class="title">
-        <NuxtLink to="/">
-          <Face />
-          <Logo />
-        </NuxtLink>
+  <div class="navbar">
+    <nav :class="bare === true ? 'bare' : ''">
+      <div class="container">
+        <div class="title">
+          <NuxtLink to="/">
+            <Face />
+            <Logo />
+          </NuxtLink>
+        </div>
+        <a href="#" class="toggle-button" @click.prevent="toggleMenu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </a>
+        <div class="navbar-links" :class="open ? 'active' : ''">
+          <ul>
+            <li v-for="(item, i) in menu" :key="i">
+              <NuxtLink v-if="typeof item.to === 'string'" :to="item.to">{{
+                item.text
+              }}</NuxtLink>
+              <a
+                v-if="typeof item.to === 'function'"
+                @click.prevent="item.to"
+                >{{ item.text }}</a
+              >
+            </li>
+          </ul>
+        </div>
       </div>
-      <a href="#" class="toggle-button" @click.prevent="toggleMenu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </a>
-      <div class="navbar-links" :class="open ? 'active' : ''">
-        <ul>
-          <li v-for="(item, i) in menu" :key="i">
-            <NuxtLink :to="item.to">{{ item.text }}</NuxtLink>
-          </li>
-        </ul>
+    </nav>
+    <div class="container" style="justify-content: right">
+      <div v-show="search" class="searchmenu">
+        <AppSearchInput></AppSearchInput>
       </div>
     </div>
-  </nav>
+  </div>
 </template>
 
 <script>
@@ -34,11 +48,17 @@ export default {
   data() {
     return {
       open: false,
+      search: false,
       menu: [
-        { text: 'Home', to: '/#splashend' },
-        { text: 'Blog', to: '/blog' },
-        { text: 'Projects', to: '/projects' },
-        { text: 'Search', to: '/search' }
+        { text: 'Home', to: '/' },
+        { text: 'Blog', to: '/#splashend' },
+        // { text: 'Projects', to: '/projects' },
+        {
+          text: 'Search',
+          to: () => {
+            this.search = !this.search
+          }
+        }
       ]
     }
   },
@@ -52,9 +72,9 @@ export default {
           document.body.scrollTop > max ||
           document.documentElement.scrollTop > max
         ) {
-          document.querySelector('.navbar').classList.remove('bare')
+          document.querySelector('nav').classList.remove('bare')
         } else {
-          document.querySelector('.navbar').classList.add('bare')
+          document.querySelector('nav').classList.add('bare')
         }
       }
     }
@@ -67,18 +87,30 @@ export default {
 }
 </script>
 
-<style type="postcss" scoped>
+<style type="scss" scoped>
+.searchmenu {
+  background-color: rgba(28, 28, 28, 0.95);
+  padding: 15px;
+  max-width: 400px;
+  min-width: 200px;
+  float: right;
+  border-radius: 0 0 3px 3px;
+}
+
 .navbar {
   position: fixed;
-  padding: 0.5em;
   top: 0;
   z-index: 100;
   width: 100%;
-  background-color: rgba(28, 28, 28, 0.95);
   transition: all 0.3s;
 }
 
-.navbar.bare {
+.navbar nav {
+  padding: 0.5em;
+  background-color: rgba(28, 28, 28, 0.95);
+}
+
+.navbar nav.bare {
   box-shadow: 0 30px 18px 6px rgba(0, 12, 0, 0.64) inset;
   background-color: initial;
 }
@@ -87,7 +119,7 @@ export default {
   transition: all 0.3s;
   opacity: 1;
 }
-.navbar.bare .title {
+.navbar nav.bare .title {
   opacity: 0;
 }
 
@@ -131,6 +163,7 @@ export default {
   text-decoration: none;
   color: #f0f0f0;
   padding: 1rem;
+  cursor: pointer;
 }
 
 .navbar-links li a:hover {

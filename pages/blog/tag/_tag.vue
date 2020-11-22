@@ -3,6 +3,7 @@
     class="flex lg:h-screen w-screen lg:overflow-hidden xs:flex-col lg:flex-row"
   >
     <div class="relative lg:w-1/2 xs:w-full xs:h-84 lg:h-full post-left">
+      <MainNavigation :bare="false" />
       <img
         :src="tag.img"
         :alt="tag.name"
@@ -12,13 +13,12 @@
 
     <div class="overlay"></div>
     <div class="absolute top-32 left-32 right-32 text-white">
-      <NuxtLink to="/"><Logo /></NuxtLink>
       <div class="mt-16 -mb-3 flex flex-col text-sm">
         <div class="relative lg:w-1/2 xs:w-full xs:h-84 lg:h-full post-left">
-          <h1 class="text-4xl font-bold uppercase">
+          <h1 class="text-6xl font-extrabold uppercase">
             {{ tag.name }}
           </h1>
-          <p class="mb-4 uppercase">{{ tag.description }}</p>
+          <p class="mb-4">{{ tag.description }}</p>
 
           <nuxt-content :document="tag" />
         </div>

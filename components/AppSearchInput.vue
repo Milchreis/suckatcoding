@@ -5,7 +5,7 @@
       type="search"
       autocomplete="off"
       placeholder="Search"
-      class="block w-full pl-10 pr-3 py-2 truncate leading-5 placeholder-gray-500 border border-gray-500 text-gray-700 focus:border-gray-300 rounded-md focus:outline-none focus:bg-white bg-white"
+      class="block w-full pl-3 pr-3 py-2 truncate leading-5 placeholder-gray-500 border border-gray-500 text-gray-700 focus:border-gray-300 rounded-md focus:outline-none focus:bg-white bg-white"
     />
     <ul
       v-if="items.length"
@@ -14,7 +14,7 @@
       <li v-for="item of items" :key="item.slug">
         <NuxtLink
           :to="{ name: item.slugType + '-slug', params: { slug: item.slug } }"
-          class="flex px-4 py-2 items-center leading-5 transition ease-in-out duration-150 text-green-500 hover:text-black"
+          class="flex px-4 py-2 items-center leading-5 transition ease-in-out duration-150 text-gray-700 hover:text-pink-700"
         >
           {{ item.title }}
         </NuxtLink>
