@@ -10,6 +10,7 @@ author:
 tags: 
   - JavaScript
 createdAt: 2020-11-22
+updatedAt: 2020-11-22
 ---
 
 ## ⏳ Relative time in JavaScript
