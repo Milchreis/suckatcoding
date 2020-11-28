@@ -10,6 +10,7 @@ author:
 tags: 
   - JavaScript
 createdAt: 2020-11-28
+updatedAt: 2020-11-28
 ---
 
 ## Log variable name and value: the short way
