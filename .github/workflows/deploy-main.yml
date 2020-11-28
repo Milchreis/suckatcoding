@@ -24,7 +24,7 @@ jobs:
     - run: npm run generate
     # Deploy  
     - name: FTP-Deploy-Action
-      uses: SamKirkland/FTP-Deploy-Action@3.1.1
+      uses: SamKirkland/FTP-Deploy-Action@4.0.0
       with:
         server: sftp://suckatcoding.com:23
         username: ${{ secrets.FTP_USER }}
