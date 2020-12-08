@@ -10,6 +10,8 @@ author:
 tags: 
   - TDD BDD
   - Java
+createdAt: 2020-11-22
+updatedAt: 2020-11-22
 ---
 
 ## 🤯 Assert nested objects with AssertJ
