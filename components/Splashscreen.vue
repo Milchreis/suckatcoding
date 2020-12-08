@@ -42,8 +42,9 @@ export default {
 .face > img {
   margin-top: 5em;
   height: 90% !important;
+  max-height: 500px !important;
   width: auto !important;
-  max-width: auto !important;
+  max-width: 500px !important;
 }
 
 .logo_text > img {
