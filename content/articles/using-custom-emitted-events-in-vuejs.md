@@ -8,7 +8,7 @@ author:
   bio: I am a software developer who spends most of his spare time working on open source projects. I also like taking pictures and playing table football.
   img: https://avatars1.githubusercontent.com/u/544436?s=460&u=f229b588fbb1b79aab2ab6f029cec5e6e7909af1&v=4
 tags: 
-  - Javascript
+  - JavaScript
 createdAt: 2020-12-08
 updatedAt: 2020-12-08
 ---
