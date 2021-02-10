@@ -57,6 +57,7 @@
     <Footer></Footer>
   </div>
 </template>
+
 <script>
 export default {
   async asyncData({ $content, params }) {
@@ -82,6 +83,19 @@ export default {
     formatDate(date) {
       const options = { year: 'numeric', month: 'long', day: 'numeric' }
       return new Date(date).toLocaleDateString('en', options)
+    }
+  },
+  head() {
+    return {
+      title: `${this.article.title} - suck at coding`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.article.title
+        },
+        { hid: 'og-title', property: 'og:title', content: this.article.title }
+      ]
     }
   }
 }
