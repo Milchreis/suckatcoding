@@ -4,29 +4,25 @@
     <Splashscreen />
 
     <div class="container xs:py-8 xs:px-8 lg:py-8">
-      <h1 class="font-extrabold text-4xl">Articles</h1>
       <ul class="flex flex-wrap">
         <li
           v-for="article of articles"
           :key="article.slug"
-          class="xs:w-full md:w-1/2 px-2 xs:mb-6 md:mb-12 article-card"
+          class="xs:w-full px-2 xs:mb-6 md:mb-12 article-card"
         >
           <NuxtLink
             :to="{ name: 'blog-slug', params: { slug: article.slug } }"
-            class="flex transition-shadow duration-150 ease-in-out shadow-sm hover:shadow-md xxlmax:flex-col"
+            class="flex xxlmax:flex-col article-card pt-2 pb-2"
           >
-            <img
-              v-if="article.img"
-              class="h-48 xxlmin:w-1/2 xxlmax:w-full object-cover"
-              :src="article.img"
-            />
+            <div class="relative justify-between w-full">
+              <img
+                v-if="article.img"
+                class="inset-0 w-full h-48 object-cover round-10"
+                :src="article.img"
+              />
 
-            <div
-              class="p-6 flex flex-col justify-between xxlmin:w-1/2 xxlmax:w-full"
-            >
-              <h2 class="font-bold">{{ article.title }}</h2>
-              <p>by {{ article.author.name }}</p>
-              <p class="font-bold text-gray-600 text-sm">
+              <h1 class="font-extrabold text-4xl">{{ article.title }}</h1>
+              <p class="font-bold">
                 {{ article.description }}
               </p>
             </div>
@@ -79,13 +75,19 @@ export default {
 
 <style class="postcss">
 .article-card {
-  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  border-radius: 5px;
 }
+.article-card:hover {
+  background-color: #191a19;
+  color: #fff;
+}
+
 .article-card a {
   background-color: #fff;
   border-radius: 8px;
 }
-.article-card img div {
-  border-radius: 8px 0 0 8px;
+.article-card img {
+  border-radius: 5px;
 }
 </style>
