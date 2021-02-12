@@ -136,6 +136,22 @@ article {
     line-height: 1.2em;
     letter-spacing: 0;
   }
+
+  p img {
+    margin: 1em auto;
+  }
+
+  blockquote {
+    display: flex;
+    justify-content: center;
+    p {
+      border-left: solid 3px gray;
+      font-style: italic;
+      margin: 1em auto;
+      padding: 0.5em 0.5em 0.5em 0.5em;
+      opacity: 0.7;
+    }
+  }
 }
 
 .markdown-body .nuxt-content a {
