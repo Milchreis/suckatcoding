@@ -1,6 +1,18 @@
 <template>
   <div>
     <div class="splashscreen">
+      <div class="splashend">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1000 100"
+          preserveAspectRatio="none"
+        >
+          <path
+            class="elementor-shape-fill"
+            d="M500.2,94.7L0,0v100h1000V0L500.2,94.7z"
+          ></path>
+        </svg>
+      </div>
       <div>
         <div class="container">
           <div class="face">
@@ -15,7 +27,6 @@
         </div>
       </div>
     </div>
-    <div id="splashend"></div>
   </div>
 </template>
 
@@ -78,13 +89,19 @@ export default {
 }
 
 .splashscreen .scroll {
+  display: flex;
+  justify-content: center;
   margin: 0 auto;
-  padding: 2em;
-  left: 50%;
+  cursor: pointer;
+  bottom: 5em;
+}
+
+.splashscreen .scroll .scrollicon {
   max-width: 6em;
+  padding: 2em;
   position: absolute;
   bottom: 5em;
-  cursor: pointer;
+  max-height: 100px;
   animation-name: scrollMove;
   animation-duration: 1.5s;
   animation-timing-function: ease-in-out;
@@ -104,7 +121,6 @@ export default {
 
 .splashscreen {
   height: 100vh;
-  box-shadow: 0 0 0 80px #191a19;
   background-image: url(~assets/images/splash.jpg);
   background-position: center;
   background-repeat: no-repeat;
@@ -115,5 +131,19 @@ export default {
   justify-content: center;
   align-items: center;
   margin-bottom: 6em;
+}
+
+.splashend {
+  bottom: -1px;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  direction: ltr;
+}
+
+.splashend svg {
+  fill: #fff;
 }
 </style>
