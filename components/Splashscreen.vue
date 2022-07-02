@@ -22,7 +22,7 @@
             <Logo />
           </div>
         </div>
-        <div class="scroll" @click="scrollDown">
+        <div class="scroll" @click="scrollDown('.splashscreen')">
           <ScrollDown />
         </div>
       </div>
@@ -31,13 +31,10 @@
 </template>
 
 <script>
+import scroll from '@/mixins/scroll'
+
 export default {
-  methods: {
-    scrollDown() {
-      const scollY = document.querySelector('.splashscreen').clientHeight
-      window.scrollTo({ top: scollY, behavior: 'smooth' })
-    }
-  }
+  mixins: [scroll]
 }
 </script>
 

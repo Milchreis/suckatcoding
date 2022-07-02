@@ -16,14 +16,12 @@
         <div class="navbar-links" :class="open ? 'active' : ''">
           <ul>
             <li v-for="(item, i) in menu" :key="i">
-              <NuxtLink v-if="typeof item.to === 'string'" :to="item.to">{{
-                item.text
-              }}</NuxtLink>
-              <a
-                v-if="typeof item.to === 'function'"
-                @click.prevent="item.to"
-                >{{ item.text }}</a
-              >
+              <NuxtLink v-if="typeof item.to === 'string'" :to="item.to">
+                {{ item.text }}
+              </NuxtLink>
+              <a v-if="typeof item.to === 'function'" @click.prevent="item.to">
+                {{ item.text }}
+              </a>
             </li>
           </ul>
         </div>
@@ -38,7 +36,10 @@
 </template>
 
 <script>
+import scroll from '@/mixins/scroll'
+
 export default {
+  mixins: [scroll],
   props: {
     bare: {
       type: Boolean,
@@ -50,8 +51,26 @@ export default {
       open: false,
       search: false,
       menu: [
-        { text: 'Home', to: '/' },
-        { text: 'Blog', to: '/#splashend' },
+        {
+          text: 'Home',
+          to: () => {
+            try {
+              this.scrollDown('.navbar')
+            } catch {
+              window.location.href = '/'
+            }
+          }
+        },
+        {
+          text: 'Blog',
+          to: () => {
+            try {
+              this.scrollDown('.splashscreen')
+            } catch {
+              window.location.href = '/#blog'
+            }
+          }
+        },
         // { text: 'Projects', to: '/projects' },
         {
           text: 'Search',

@@ -3,7 +3,7 @@
     <MainNavigation :bare="true" />
     <Splashscreen />
 
-    <div class="container xs:py-8 xs:px-8 lg:py-8">
+    <div id="blog" class="container xs:py-8 xs:px-8 lg:py-8">
       <ul class="flex flex-wrap">
         <li
           v-for="article of articles"
