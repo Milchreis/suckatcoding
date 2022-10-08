@@ -22,6 +22,9 @@
             <Logo />
           </div>
         </div>
+        <div class="text-center text-lg text-white font-bold font-head">
+          Lessons from the weird life of a software developer
+        </div>
         <div class="scroll" @click="scrollDown('.splashscreen')">
           <ScrollDown />
         </div>
@@ -111,6 +114,7 @@ export default {
   from {
     bottom: 5em;
   }
+
   to {
     bottom: 7em;
   }
@@ -118,6 +122,7 @@ export default {
 
 .splashscreen {
   height: 100vh;
+  font-family: 'Volkhov', serif;
   background-image: url(~assets/images/splash.jpg);
   background-position: center;
   background-repeat: no-repeat;
@@ -128,6 +133,12 @@ export default {
   justify-content: center;
   align-items: center;
   margin-bottom: 6em;
+}
+
+.splashscreen .headertext {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .splashend {

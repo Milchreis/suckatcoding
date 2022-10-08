@@ -17,7 +17,8 @@ module.exports = {
     },
     fontFamily: {
       display: ['Quicksand', 'sans-serif'],
-      body: ['Quicksand', 'sans-serif']
+      body: ['Quicksand', 'sans-serif'],
+      head: ["Volkhov"],
     },
     borderWidth: {
       default: '1px',

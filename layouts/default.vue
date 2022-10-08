@@ -23,4 +23,11 @@ html {
   box-sizing: border-box;
   margin: 0;
 }
+
+.text-gradient {
+  background: linear-gradient(135deg, #fe9332 38%, #db1d6a 100%);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 </style>
