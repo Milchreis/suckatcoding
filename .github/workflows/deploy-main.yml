@@ -26,7 +26,7 @@ jobs:
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
       with:
-        server: sftp://suckatcoding.com:23
+        server: sftp://suckatcoding.com
         username: ${{ secrets.FTP_USER }}
         password: ${{ secrets.FTP_PASSWORD }}
         known-hosts: ${{ secrets.FTP_RSA }}
