@@ -23,7 +23,9 @@
           </div>
         </div>
         <div class="text-center text-lg text-white font-bold font-head">
-          Lessons from the weird life of a software developer
+          <div class="customCursor">
+            {{ viewedSubline }}
+          </div>
         </div>
         <div class="scroll" @click="scrollDown('.splashscreen')">
           <ScrollDown />
@@ -37,7 +39,27 @@
 import scroll from '@/mixins/scroll'
 
 export default {
-  mixins: [scroll]
+  mixins: [scroll],
+  data() {
+    return {
+      subline: 'Lessons from the weird life of a software developer',
+      viewedSubline: '',
+      curCursor: 0,
+      intervalId: null
+    }
+  },
+  created() {
+    setTimeout(this.simulateTip, 500)
+  },
+  methods: {
+    simulateTip() {
+      this.curCursor++
+      if (this.curCursor <= this.subline.length) {
+        this.viewedSubline = this.subline.substring(0, this.curCursor)
+        setTimeout(this.simulateTip, Math.random() * (150 - 10) + 10)
+      }
+    }
+  }
 }
 </script>
 
@@ -123,7 +145,7 @@ export default {
 .splashscreen {
   height: 100vh;
   font-family: 'Volkhov', serif;
-  background-image: url(~assets/images/splash.jpg);
+  background-image: url(~assets/images/splash2.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -153,5 +175,27 @@ export default {
 
 .splashend svg {
   fill: #fff;
+}
+
+.customCursor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+}
+
+@keyframes cursor-blink {
+  0% {
+    opacity: 0;
+  }
+}
+
+.customCursor::after {
+  content: '';
+  width: 3px;
+  height: 20px;
+  background: #fff;
+  display: inline-block;
+  animation: cursor-blink 1s steps(2) infinite;
 }
 </style>

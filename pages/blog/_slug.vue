@@ -116,7 +116,8 @@ article {
   h2 {
     font-size: 2.5rem !important;
     font-weight: 800 !important;
-    margin-bottom: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1.3rem;
     line-height: 0.95;
   }
   h3 {
@@ -145,12 +146,22 @@ article {
     display: flex;
     justify-content: center;
     p {
-      border-left: solid 3px gray;
+      border-left: solid 5px gray;
       font-style: italic;
       margin: 1em auto;
-      padding: 0.5em 0.5em 0.5em 0.5em;
+      padding-left: 1.5em;
       opacity: 0.7;
     }
+  }
+
+  div.twitter-tweet {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  ul {
+    list-style: disc;
+    margin-left: 2em;
   }
 }
 
