@@ -24,10 +24,11 @@ jobs:
     - run: npm run generate
     # Deploy  
     - name: FTP-Deploy-Action
-      uses: SamKirkland/FTP-Deploy-Action@4.0.0
+      uses: SamKirkland/FTP-Deploy-Action@4.3.2
       with:
         server: sftp://suckatcoding.com
         username: ${{ secrets.FTP_USER }}
         password: ${{ secrets.FTP_PASSWORD }}
+        port: ${{ secrets.FTP_PORT }}
         known-hosts: ${{ secrets.FTP_RSA }}
         local-dir: dist/
