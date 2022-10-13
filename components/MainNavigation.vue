@@ -53,13 +53,7 @@ export default {
       menu: [
         {
           text: 'Home',
-          to: () => {
-            try {
-              this.scrollDown('.navbar')
-            } catch {
-              window.location.href = '/'
-            }
-          }
+          to: '/'
         },
         {
           text: 'Blog',

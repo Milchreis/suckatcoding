@@ -1,23 +1,13 @@
 <template>
   <div>
-    <MainNavigation :bare="true" />
-    <Splashscreen />
+    <MainNavigation />
 
     <div class="min-h-screen container">
-      <!-- <section class="lg:px-[15%] px-[5%] lg:pb-20 pb-14">
-        <h1 class="lg:text-5xl text-2xl leading-normal font-bold font-head">
-          <span class="font-bold">
-            Latest <span class="text-gradient">works</span>
-          </span>
-        </h1>
-      </section> -->
-
       <section class="lg:px-[15%] px-[5%] lg:pb-20 px-5 xl:px-0 2xl:px-0">
         <div class="flex justify-between">
           <h1 class="lg:text-5xl text-2xl leading-normal font-bold font-head">
-            Recent <span class="text-gradient">Blog</span> Posts
+            All <span class="text-gradient">Blog</span> Posts
           </h1>
-          <NuxtLink class="self-end pb-2" to="/blog">view all posts</NuxtLink>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
           <div
@@ -59,7 +49,6 @@ export default {
     const articles = await $content('articles', params.slug)
       .only(['title', 'description', 'img', 'slug', 'author'])
       .sortBy('createdAt', 'desc')
-      .limit(6)
       .fetch()
     const tags = await $content('tags', params.slug)
       .only(['name', 'description', 'img', 'slug'])
@@ -73,7 +62,10 @@ export default {
 }
 </script>
 
-<style class="postcss">
+<style class="postcss" scoped>
+.container {
+  margin-top: 90px;
+}
 .article_box {
   overflow: hidden;
   transition: all 0.15s ease-in-out;
