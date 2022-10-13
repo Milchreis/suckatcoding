@@ -12,7 +12,7 @@
         </h1>
       </section> -->
 
-      <section class="lg:px-[15%] px-[5%] lg:pb-20 pb-14">
+      <section class="lg:px-[15%] px-[5%] lg:pb-20 px-5 xl:px-0 2xl:px-0">
         <h1 class="lg:text-5xl text-2xl leading-normal font-bold font-head">
           <span class="font-bold">
             Recent <span class="text-gradient">Blog</span> Posts

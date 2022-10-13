@@ -22,7 +22,9 @@
             <Logo />
           </div>
         </div>
-        <div class="text-center text-lg text-white font-bold font-head">
+        <div
+          class="text-center text-lg text-white font-bold font-head pl-2 pr-2"
+        >
           <div class="customCursor">
             {{ viewedSubline }}
           </div>
@@ -63,7 +65,7 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style lang="scss">
 .face {
   height: 40vh;
   max-height: 40vh;
@@ -74,16 +76,16 @@ export default {
 
 .face > img {
   margin-top: 5em;
-  height: 90% !important;
-  max-height: 500px !important;
+  height: 27vw;
+  max-height: 349px !important;
   width: auto !important;
   max-width: 500px !important;
 }
 
 .logo_text > img {
-  height: 110% !important;
+  height: 35vw;
+  max-height: 108% !important;
   width: auto !important;
-  max-width: auto !important;
 }
 
 .face:hover {
@@ -107,7 +109,8 @@ export default {
   max-width: 960px;
   display: flex;
   justify-content: center;
-  margin-bottom: 10em;
+  margin-bottom: 15%;
+  padding: 1rem;
 }
 
 .splashscreen .scroll {
@@ -115,14 +118,14 @@ export default {
   justify-content: center;
   margin: 0 auto;
   cursor: pointer;
-  bottom: 5em;
+  bottom: 4em;
 }
 
 .splashscreen .scroll .scrollicon {
   max-width: 6em;
   padding: 2em;
   position: absolute;
-  bottom: 5em;
+  bottom: 4em;
   max-height: 100px;
   animation-name: scrollMove;
   animation-duration: 1.5s;
@@ -134,11 +137,11 @@ export default {
 
 @keyframes scrollMove {
   from {
-    bottom: 5em;
+    bottom: 4em;
   }
 
   to {
-    bottom: 7em;
+    bottom: 6em;
   }
 }
 

@@ -18,7 +18,9 @@
             <span class="mr-3">•</span>
             <p>{{ article.author.name }}</p>
           </div>
-          <h1 class="text-6xl font-extrabold">{{ article.title }}</h1>
+          <h1 class="text-5xl 2xl:text-6xl xl:text-6xl font-extrabold">
+            {{ article.title }}
+          </h1>
           <p class="-mt-2 mb-5 font-bold">{{ article.description }}</p>
           <span v-for="(tag, id) in article.tags" :key="id">
             <NuxtLink :to="`/blog/tag/${tags[tag].slug}`">
@@ -32,7 +34,7 @@
         </div>
       </div>
       <div
-        class="container relative xs:py-8 xs:px-8 lg:py-8 xs:w-full markdown-body post-right custom-scroll"
+        class="container relative xs:py-8 xs:px-5 lg:py-8 xs:w-full markdown-body post-right custom-scroll"
       >
         <!-- table of contents -->
         <TableOfContent v-if="false" :article="article"></TableOfContent>
@@ -114,14 +116,14 @@ export default {
 article {
   font-size: 1.1rem;
   h2 {
-    font-size: 2.5rem !important;
+    font-size: 2rem !important;
     font-weight: 800 !important;
     margin-top: 2rem;
     margin-bottom: 1.3rem;
     line-height: 0.95;
   }
   h3 {
-    font-size: 2rem !important;
+    font-size: 1.8rem !important;
     font-weight: 800 !important;
     margin-bottom: 0.6rem;
     line-height: 0.95;
