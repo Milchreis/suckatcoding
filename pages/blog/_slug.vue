@@ -43,7 +43,10 @@
         <nuxt-content :document="article" />
       </div>
 
-      <div class="container relative xs:py-8 xs:px-8 lg:py-8 xs:w-full">
+      <div
+        v-if="article.author.img"
+        class="container relative xs:py-8 xs:px-8 lg:py-8 xs:w-full"
+      >
         <!-- content author component -->
         <author :author="article.author" />
       </div>
