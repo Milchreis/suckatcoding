@@ -34,6 +34,7 @@ export default {
      */
     plugins: [
         '~/plugins/offline-resources.js',
+        '~/plugins/gtag.js',
     ],
     /*
      ** Auto import components
@@ -46,7 +47,7 @@ export default {
     buildModules: [
         '@nuxtjs/eslint-module',
         '@nuxtjs/stylelint-module',
-        '@nuxtjs/tailwindcss', ['@nuxtjs/google-analytics', { id: 'UA-79199881-4' }]
+        '@nuxtjs/tailwindcss',
     ],
     /*
      ** Nuxt.js modules

@@ -28,13 +28,13 @@
         "@nuxtjs/sitemap": "^2.4.0",
         "nuxt": "2.14.7",
         "prism-themes": "1.4.1",
-        "reading-time": "^1.2.0"
+        "reading-time": "^1.2.0",
+        "vue-gtag": "^1.16.1"
     },
     "devDependencies": {
         "@fontsource/volkhov": "^4.5.9",
         "@nuxtjs/eslint-config": "3.1.0",
         "@nuxtjs/eslint-module": "2.0.0",
-        "@nuxtjs/google-analytics": "^2.4.0",
         "@nuxtjs/stylelint-module": "4.0.0",
         "@nuxtjs/tailwindcss": "3.2.0",
         "babel-eslint": "10.1.0",
