@@ -1,7 +1,7 @@
 const domain = 'https://suckatcoding.com'
 
 export default {
-    ssr: true,
+    ssr: false,
     /*
      ** Nuxt target
      ** See https://nuxtjs.org/api/configuration-target
@@ -32,7 +32,9 @@ export default {
      ** Plugins to load before mounting the App
      ** https://nuxtjs.org/guide/plugins
      */
-    plugins: [],
+    plugins: [
+        '~/plugins/offline-resources.js',
+    ],
     /*
      ** Auto import components
      ** See https://nuxtjs.org/api/configuration-components
@@ -103,7 +105,7 @@ export default {
         },
         cacheTime: 1000 * 60 * 15,
         type: 'rss2',
-    }, ],
+    },],
     hooks: {
         'content:file:beforeInsert': (document) => {
             // eslint-disable-next-line
